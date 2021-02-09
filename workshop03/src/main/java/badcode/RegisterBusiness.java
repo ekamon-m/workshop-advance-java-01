@@ -10,7 +10,8 @@ public class RegisterBusiness {
     private final String firstNameRequiredMessage = "First name is required.";
     private final String lastNameRequiredMessage = "Last name is required.";
     private final String emailIsrequiredMessage = "Email is required.";
-    private final String incorrectStandardMessage ="Speaker doesn't meet our standard rules.";
+    private final String incorrectStandardMessage = "Speaker doesn't meet our standard rules.";
+    private final String saveErrorMessage = "Can't save a speaker.";
 
     public Integer register(SpeakerRepository repository, Speaker speaker) {
         Integer speakerId;
@@ -34,10 +35,10 @@ public class RegisterBusiness {
             try {
                 speakerId = repository.saveSpeaker(speaker);
             }catch (Exception exception) {
-                throw new SaveSpeakerException("Can't save a speaker.");
+                throw new SaveSpeakerException(saveErrorMessage);
             }
         } else {
-            throw new SpeakerDoesntMeetRequirementsException("Speaker doesn't meet our standard rules.");
+            throw new SpeakerDoesntMeetRequirementsException(incorrectStandardMessage);
         }
 
         return speakerId;
