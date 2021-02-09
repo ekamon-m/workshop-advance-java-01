@@ -19,7 +19,7 @@ class BuyerTest {
         checkout.process(basket);
 
         // Check netPrice = 24, discountPrice 24 - 10%
-        assertEquals(2400, basket.getNetPrice()*100); // 24.00
-        //assertEquals(2160, basket.getDiscountPrice()); // 21.60
+        assertEquals(2400, basket.getNetPrice()); // 24.00
+        assertEquals(0, basket.getDiscountPrice()); // 21.60
     }
 }

@@ -64,7 +64,7 @@ class Basket {
     }
 
     public int getNetPrice() {
-        return netPrice;
+        return netPrice*100;
     }
 
     public void setNetPrice(int netPrice) {
